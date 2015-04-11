@@ -16,8 +16,9 @@ function LoadMainFile($file_name)
         echo 'Błąd ładowania' . $file_name;
     }   
 }
-
-    LoadMainFile('constans.php');
-    LoadMainFile('db.php');
     LoadMainFile('error.php');
+    LoadMainFile('constans.php');
     LoadMainFile('functions.php');
+    LoadMainFile('db.php');
+
+
