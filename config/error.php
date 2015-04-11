@@ -1,0 +1,6 @@
+<?php
+
+/* 
+ * Zawiera metody bledów
+ */
+
