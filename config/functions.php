@@ -28,10 +28,9 @@ function GetIpAddres()
     return $ipaddress;
 }
 
-function GetTime()
+function GetTimeToMySQL()
 {
-    
-    
+    return date("Y-m-d H:i:s"); 
 }
 
 function GetUserInfo()

@@ -8,7 +8,7 @@ function LoadMainFile($file_name)
 {
     if(file_exists(CONFIG_DIR.$file_name))
     {
-        echo 'Poprawnie zaladowany: ' . $file_name . '<br />';
+        //echo 'Poprawnie zaladowany: ' . $file_name . '<br />';
         require_once CONFIG_DIR . $file_name;
     }
     else

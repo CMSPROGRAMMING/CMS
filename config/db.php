@@ -74,7 +74,7 @@ function AskQuery($link, $query)
 function SaveLogs($link, $message, $query, $user, $controller)
 {
     $ip_addr = GetIpAddres();
-    $time = 120; //GetTime();
+    $time = GetTimeToMySQL();
     $message = SqlMessagePars($message);
     
     $sql = "INSERT INTO Sys_logs (controller, user, query, message, ip, time) VALUES ('$controller','$user','$query','$message','$ip_addr','$time')";
@@ -86,9 +86,11 @@ function SaveLogs($link, $message, $query, $user, $controller)
 }
 
 
-$link = Conection();
+//$link = Conection();
 //Disconection($link);
 
-$query = "SELECT * FROM `sys_logs`";
+///$query = "SELECT * FROM `sys_logs`";
 
-AskQuery($link, $query);
+//AskQuery($link, $query);
+
+//GetTimeToMySQL();

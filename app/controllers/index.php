@@ -4,7 +4,7 @@
  * Główny index.php - kontroler
  */
 
-        //require_once DIR_MODELS . "index.php";
+        require_once MODELS_DIR . "index.php";
 	
 
 	/*function redner($query_all_models, $query_controler_name, $controler)
