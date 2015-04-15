@@ -80,8 +80,9 @@ CREATE TABLE IF NOT EXISTS `sys_logs` (
 # Struktura tabeli `session`
 #
 CREATE TABLE IF NOT EXISTS `session` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT,
-    `` VARCHAR(60) NOT NULL COMMENT 'Imię użytownika',
-	`` VARCHAR(60) NOT NULL COMMENT 'Nazwisko użytkownika',
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `s_key` VARCHAR(100) NOT NULL COMMENT 'klucz losowy',
+  `s_time` VARCHAR(50) NOT NULL COMMENT 'Czas aktywacji',
+  `user` INTEGER NOT NULL COMMENT 'Użytkownik',
 	PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
