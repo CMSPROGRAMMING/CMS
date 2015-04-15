@@ -58,6 +58,23 @@ CREATE TABLE IF NOT EXISTS `user` (
 	PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `Sys_logs`
+--
+
+CREATE TABLE IF NOT EXISTS `sys_logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `controller` varchar(50) COLLATE utf8_polish_ci NOT NULL COMMENT 'Nazwa kontrolera',
+  `user` varchar(50) COLLATE utf8_polish_ci NOT NULL COMMENT 'Nazwa usera',
+  `query` varchar(300) COLLATE utf8_polish_ci NOT NULL COMMENT 'Zapytanie',
+  `message` varchar(300) COLLATE utf8_polish_ci NOT NULL COMMENT 'Błąd',
+  `ip` varchar(16) COLLATE utf8_polish_ci NOT NULL COMMENT 'IP Usera',
+  `time` varchar(30) COLLATE utf8_polish_ci NOT NULL COMMENT 'Godzina zdarzenia',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=1 ;
+
 # -------------------------------------------------------
 #
 # Struktura tabeli `session`
