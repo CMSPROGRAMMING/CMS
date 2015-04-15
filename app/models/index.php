@@ -8,7 +8,6 @@
     function LoadCurrentModel()
     {
         $current_model = GetCurrentController();
-        echo $current_model;
         
         if($current_model != "home")
         {
@@ -18,7 +17,7 @@
 
     function DoQuery($query)
     {
-        AskQuery($GLOBALS['link'], $query);
+        $result = AskQuery($GLOBALS['link'], $query);
     }
     
     function Select($nazwatabeli,$nazwykolumn=array())

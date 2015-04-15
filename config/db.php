@@ -60,14 +60,16 @@ function AskQuery($link, $query)
     {
         $message = (mysqli_error($link));
         DatabaseQueryError($query);
+        SaveLogs($link, $message, $query, $user, $controller);
+        return false;
     }
     else
     {
         $message = "Poprawne zapytanie";
         DatabaseQuerySucces();
+        SaveLogs($link, $message, $query, $user, $controller);
+        return $result;
     }
-    
-    SaveLogs($link, $message, $query, $user, $controller);
 
 }
 
