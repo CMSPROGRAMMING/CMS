@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp181/htdocs/CMS/config/error.php</file>
-            <file>file:/C:/xampp181/htdocs/CMS/config/functions.php</file>
-            <file>file:/C:/xampp181/htdocs/CMS/db/bazacms.sql</file>
-            <file>file:/C:/xampp181/htdocs/CMS/config/constans.php</file>
-            <file>file:/C:/xampp181/htdocs/CMS/app/controllers/index.php</file>
-            <file>file:/C:/xampp181/htdocs/CMS/config/db.php</file>
+            <file>file:/C:/xampp/htdocs/CMS/config/functions.php</file>
+            <file>file:/C:/xampp/htdocs/CMS/app/models/index.php</file>
+            <file>file:/C:/xampp/htdocs/CMS/db/bazacms.sql</file>
+            <file>file:/C:/xampp/htdocs/CMS/config/db.php</file>
         </group>
     </open-files>
 </project-private>
