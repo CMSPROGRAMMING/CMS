@@ -16,64 +16,60 @@
     {
         $result = AskQuery($GLOBALS['link'], $query);
     }
-    
-    function Select($nazwatabeli,$nazwykolumn=array())
+        
+    function Condition($columnname,$sign,$value)
     {
-       $i=0;
-    foreach($nazwykolumn as $klucz)
-        {
-            if ($i == 0){
-            $kolumny = $klucz;
-             $i++;
-            }
-            else { 
-            $kolumny .= ','.$klucz;
-            }
-        }
-        $query="SELECT $kolumny FROM $nazwatabeli";
-        return $query;
+        return $condition = $columnname.$sign.'"'.$value.'"';
     }
     
-    function Condition($nazwakolumny,$znak,$wartosc)
-    {
-        return $warunek = $nazwakolumny.$znak.$wartosc;
-    }
-    
-    function SelectCondition($nazwatabeli,$nazwykolumn=array(),$warunkimat=array(),$warunkilog=array())
+    function Select($tablename,$columnnames=array(),$mathematicalconditions=array(),$logicalconditions=array())
     {
        $i=0;
-    foreach($nazwykolumn as $klucz)
+
+    foreach($columnnames as $key)
         {
             if ($i == 0)
             {
-                $kolumny = $klucz;
+                $column = $key;
                 $i++;
             }
             else 
             { 
-                $kolumny .= ','.$klucz;
+                $column .= ','.$key;
             }
         }
+    if (count($mathematicalconditions)==0)
+    {
+        echo "SELECT $column FROM $tablename";
+        $query="SELECT $column FROM $tablename";
+        return $query;
+    }
+    else
+    {
          $i=0;
-    foreach ($warunkimat as $klucz)
+    foreach ($mathematicalconditions as $key)
         {
             if ($i == 0)
             {
-                $warunki = $klucz;
+                $values = $key;
                 $i++;
             }
             else
             {                
-                $warunki .= ' '.$warunkilog[$i-1].' '.$klucz;
+                $values .= ' '.$logicalconditions[$i-1].' '.$key;
                 $i++;
             }
                 
         }
-        $query="SELECT $kolumny FROM $nazwatabeli WHERE $warunki";
+        echo "SELECT $column FROM $tablename WHERE $values";
+        $query="SELECT $column FROM $tablename WHERE $values";
         return $query;
     }
-    //SelectCondition('sys_logs',array('query','user','message'),array(Condition('query','=','cos'),Condition('user','>','4'),Condition('message','<','5')),array('and','or')); 
+    }
     
+  //Select('sys_logs',array('id','user','message'),array(Condition('id','>','5'),Condition('user','=','Tweester'),Condition('message','=','Poprawne zapytanie')),array('and','or')); 
+  //Select('sys_logs',array('id','user','message'),NULL,NULL); 
+
    //$result = DoQuery(Select(tabela,rzecz));
     
    // Select(Tabel,rzecz) = "SELECT rzecz FROM tabela";
