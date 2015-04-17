@@ -52,6 +52,7 @@ function AskQuery($link, $query)
     }
     
     $result = mysqli_query($link, $query);
+
     
     $user = 'Tweester'; //GetUserInfo();
     $controller = GetCurrentController();
@@ -68,9 +69,9 @@ function AskQuery($link, $query)
         $message = "Poprawne zapytanie";
         DatabaseQuerySucces();
         SaveLogs($link, $message, $query, $user, $controller);
+        //$rows = mysqli_fetch_array($result);
         return $result;
     }
-
 }
 
 function SaveLogs($link, $message, $query, $user, $controller)
