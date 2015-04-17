@@ -1,10 +1,6 @@
 <?php
 
     $link = Conection();
-    
-    //$query = "SELECT * FROM sys_logs";
-    //echo $query;
-    
 
     function LoadCurrentModel()
     {
@@ -30,8 +26,9 @@
     
     function Select($tablename,$columnnames=array(),$mathematicalconditions=array(),$logicalconditions=array())
     {
-       $i=0;
-    foreach($columnnames as $key)
+        $i=0;
+        
+        foreach($columnnames as $key)
         {
             if ($i == 0)
             {
@@ -43,38 +40,37 @@
                 $column .= ','.$key;
             }
         }
-    if (count($mathematicalconditions)==0)
-    {
-        $query="SELECT $column FROM $tablename";
-        return $query;
-
-    }
-    else
-    {
-         $i=0;
-    foreach ($mathematicalconditions as $key)
-        {
-            if ($i == 0)
-            {
-                $values = $key;
-                $i++;
-            }
-            else
-            {                
-                $values .= ' '.$logicalconditions[$i-1].' '.$key;
-                $i++;
-            }
-                
-        }
-        $query="SELECT $column FROM $tablename WHERE $values";
-        return $query;
-    }
-    }
     
+        if (count($mathematicalconditions)==0)
+        {
+            $query="SELECT $column FROM $tablename";
+            return $query;
+        }
+        else
+        {
+            $i=0;
+            foreach($mathematicalconditions as $key)
+            {
+                if ($i == 0)
+                {
+                    $values = $key;
+                    $i++;
+                }
+                else
+                {                
+                    $values .= ' '.$logicalconditions[$i-1].' '.$key;
+                    $i++;
+                }    
+            }
+            
+            $query="SELECT $column FROM $tablename WHERE $values";
+            return $query;
+        }
+    }
 
-    function ResultExtract($tabel_name, $columns_name=array())
+    function ResultExtract($tabel_name, $columns_name=array(), $mathematicalconditions=array(),$logicalconditions=array())
     {
-        $result = DoQuery(Select($tabel_name, $columns_name));
+        $result = DoQuery(Select($tabel_name, $columns_name, $mathematicalconditions, $logicalconditions));
         
         $i = 0;
         
@@ -88,7 +84,14 @@
 	}        
         
         mysqli_free_result($result);
-        return $data_array;
+        if(!empty($data_array))
+        {
+            return $data_array;
+        }
+        else
+        {
+            $data_array = NULL;
+        }
     }
 
   //Select('sys_logs',array('id','user','message'),array(Condition('id','>','5'),Condition('user','=','Tweester'),Condition('message','=','Poprawne zapytanie')),array('and','or')); 
@@ -100,7 +103,7 @@
 
     //$result = DoQuery(Select('sys_logs',array('query','user','message')));
 
-    $data = ResultExtract('sys_logs', array('query','user'));
+    $data = ResultExtract('sys_logs', array('query','user'), array(Condition('id','<','5')), NULL);
     
 
     for($i = 0; $i < count($data); $i++)
