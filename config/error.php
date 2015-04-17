@@ -7,6 +7,7 @@
 function DatabaseConnectionError($message)
 {
     echo "Nastapil blad polaczenia z baza danych: " . $message;
+    exit;
 }
 
 function DatabaseDisonnectionError($message)
@@ -17,6 +18,7 @@ function DatabaseDisonnectionError($message)
 function DatabaseLogInsertError($message)
 {
     echo "Nastapil krytyczny blad dodania logow: " . $message;
+    exit;
 }
 
 function DatabaseQueryError($message)
@@ -27,4 +29,10 @@ function DatabaseQueryError($message)
 function DatabaseQuerySucces()
 {
     echo "Poprawnie dodano zapytanie!";
+}
+
+function ModelLoadError($filename)
+{
+    echo "Krytyczna blad warstwy modelu. Brak mozliwosci zaladowania pliku! <b>Model: " . $filename . "</b>";
+    exit;
 }

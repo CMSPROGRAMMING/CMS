@@ -4,13 +4,24 @@
 
     function LoadCurrentModel()
     {
+        //require_once MODELS_DIR . "index.php";
         $current_model = GetCurrentController();
+        $filename = MODELS_DIR . $current_model. '.php';
         
         if($current_model != "home")
         {
-            require_once MODELS_DIR . $current_model. '.php';
-        }
+            if(file_exists($filename))
+            {
+                require_once $filename;
+            }
+            else
+            {
+                ModelLoadError($current_model);
+            }            
+        }        
     }
+    
+    LoadCurrentModel();
 
     function DoQuery($query)
     {
