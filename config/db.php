@@ -62,7 +62,8 @@ function AskQuery($link, $query)
         $message = (mysqli_error($link));
         DatabaseQueryError($query);
         SaveLogs($link, $message, $query, $user, $controller);
-        return false;
+        exit;
+//return false;
     }
     else
     {

@@ -99,11 +99,7 @@
     
         $query="UPDATE $nazwatabeli SET $kolumny WHERE $gdzie";
         return $query;     
-    }
-        
-        
-    
-    
+    }      
     
     function ResultExtract($tabel_name, $columns_name=array(), $mathematicalconditions=array(),$logicalconditions=array())
     {
@@ -132,7 +128,7 @@
     }
     
     
-    DoQuery(update('sys_logs',array('user','message'),array('Krolik','Wal sie leszczu'),Condition('id','=','95')));
+    //DoQuery(update('sys_logs',array('user','message'),array('Krolik','Wal sie leszczu'),Condition('id','=','95')));
   //Select('sys_logs',array('id','user','message'),array(Condition('id','>','5'),Condition('user','=','Tweester'),Condition('message','=','Poprawne zapytanie')),array('and','or')); 
   //Select('sys_logs',array('id','user','message'),NULL,NULL); 
 

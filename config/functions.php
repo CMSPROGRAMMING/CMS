@@ -54,7 +54,30 @@ function GetCurrentController()
 
 function SqlMessagePars($message)
 {    
-    $message = str_replace("'"," ",$message);
-    //$message = str_replace("\""," ",$message);
+    $sign_array = array( "'" );
+    
+    for($i = 0; $i < count($sign_array); $i++)
+    {
+        $message = str_replace($sign_array[$i]," ", $message);
+    }
+    
     return $message; 
+}
+
+function TextValidation($validationText)
+{
+    $oldSignArray = array();
+    $newSignArray = array();
+    
+    for($i = 0; $i < count($oldSignArray); $i++)
+    {
+        $validationText = str_replace($oldSignArray[$i],$newSignArray[$i],$validationText);
+    }
+    
+    return $validationText;
+}
+
+function SendMail()
+{
+
 }

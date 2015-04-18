@@ -4,6 +4,8 @@
  * Zawiera metody bledów
  */
 
+$debug = true;
+
 function DatabaseConnectionError($message)
 {
     echo "Nastapil blad polaczenia z baza danych: " . $message;
