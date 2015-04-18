@@ -79,19 +79,20 @@
         }
     }
 
-    function update($nazwatabeli,$nazwykolumn=array(),$wartosci=array(),$gdzie)
+    
+    function update($nazwatabeli, $nazwykolumn=array(), $wartosci=array(),$gdzie)
     { 
         $i=0;
         foreach($nazwykolumn as $klucz)
         {
             if ($i == 0)
             {
-                $kolumny = $klucz.'\''.$wartosci[$i].'\'';
+                $kolumny = $klucz.'=\''.$wartosci[$i].'\'';
                 $i++;
             }
             else 
             { 
-                $kolumny .= ','.$klucz.'\''.$wartosci[$i].'\'';
+                $kolumny .= ','.$klucz.'=\''.$wartosci[$i].'\'';
                 $i++;
             }
         }
@@ -101,7 +102,7 @@
     }
         
         
-    DoQuery(update('sys_logs',array('user','message'),array('Krolik','Wal sie leszczu'),Condition('id','=','6')));
+    
     
     
     function ResultExtract($tabel_name, $columns_name=array(), $mathematicalconditions=array(),$logicalconditions=array())
@@ -129,7 +130,9 @@
             $data_array = NULL;
         }
     }
-
+    
+    
+    DoQuery(update('sys_logs',array('user','message'),array('Krolik','Wal sie leszczu'),Condition('id','=','95')));
   //Select('sys_logs',array('id','user','message'),array(Condition('id','>','5'),Condition('user','=','Tweester'),Condition('message','=','Poprawne zapytanie')),array('and','or')); 
   //Select('sys_logs',array('id','user','message'),NULL,NULL); 
 
@@ -142,7 +145,7 @@
     //$data = ResultExtract('sys_logs', array('query','user'), array(Condition('id','<','5')), NULL);
     
 
-    for($i = 0; $i < count($data); $i++)
+    /*for($i = 0; $i < count($data); $i++)
     {
         echo "User: " . $data[$i]["user"] . "<br />";
         echo "Query: " . $data[$i]["query"] . "<br />";        
@@ -150,5 +153,5 @@
     }
 
     //DoQuery($query);
-    //$result = DoQuery(Select('sys_logs',array('query','user','message')));
+    //$result = DoQuery(Select('sys_logs',array('query','user','message')));*/
 

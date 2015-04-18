@@ -68,8 +68,8 @@ function AskQuery($link, $query)
     {
         $message = "Poprawne zapytanie";
         DatabaseQuerySucces();
+        $query = SqlMessagePars($query); // problemy z ' ' ';
         SaveLogs($link, $message, $query, $user, $controller);
-        //$rows = mysqli_fetch_array($result);
         return $result;
     }
 }

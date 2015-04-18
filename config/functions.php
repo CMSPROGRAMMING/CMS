@@ -54,5 +54,7 @@ function GetCurrentController()
 
 function SqlMessagePars($message)
 {    
-    return str_replace("'"," ",$message); 
+    $message = str_replace("'"," ",$message);
+    //$message = str_replace("\""," ",$message);
+    return $message; 
 }
