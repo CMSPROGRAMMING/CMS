@@ -79,6 +79,31 @@
         }
     }
 
+    function update($nazwatabeli,$nazwykolumn=array(),$wartosci=array(),$gdzie)
+    { 
+        $i=0;
+        foreach($nazwykolumn as $klucz)
+        {
+            if ($i == 0)
+            {
+                $kolumny = $klucz.'\''.$wartosci[$i].'\'';
+                $i++;
+            }
+            else 
+            { 
+                $kolumny .= ','.$klucz.'\''.$wartosci[$i].'\'';
+                $i++;
+            }
+        }
+    
+        $query="UPDATE $nazwatabeli SET $kolumny WHERE $gdzie";
+        return $query;     
+    }
+        
+        
+    DoQuery(update('sys_logs',array('user','message'),array('Krolik','Wal sie leszczu'),Condition('id','=','6')));
+    
+    
     function ResultExtract($tabel_name, $columns_name=array(), $mathematicalconditions=array(),$logicalconditions=array())
     {
         $result = DoQuery(Select($tabel_name, $columns_name, $mathematicalconditions, $logicalconditions));
@@ -114,7 +139,7 @@
 
     //$result = DoQuery(Select('sys_logs',array('query','user','message')));
 
-    $data = ResultExtract('sys_logs', array('query','user'), array(Condition('id','<','5')), NULL);
+    //$data = ResultExtract('sys_logs', array('query','user'), array(Condition('id','<','5')), NULL);
     
 
     for($i = 0; $i < count($data); $i++)
