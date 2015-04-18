@@ -80,30 +80,95 @@
     }
 
     
-    function update($nazwatabeli, $nazwykolumn=array(), $wartosci=array(),$gdzie)
+    function Update($tablename, $columnnames=array(), $value=array(),$mathematicalconditions=array(),$logicalconditions=array())
     { 
         $i=0;
-        foreach($nazwykolumn as $klucz)
+        foreach($columnnames as $key)
         {
             if ($i == 0)
             {
-                $kolumny = $klucz.'=\''.$wartosci[$i].'\'';
+                $column = $key.'=\''.$value[$i].'\'';
                 $i++;
             }
             else 
             { 
-                $kolumny .= ','.$klucz.'=\''.$wartosci[$i].'\'';
+                $column .= ','.$key.'=\''.$value[$i].'\'';
+                $i++;
+            }
+        }              
+        $i=0;        
+            foreach($mathematicalconditions as $key)
+            {
+                if ($i == 0)
+                {
+                    $values = $key;
+                    $i++;
+                }
+                else
+                {                
+                    $values .= ' '.$logicalconditions[$i-1].' '.$key;
+                    $i++;
+                }    
+            }
+        $query="UPDATE $tablename SET $column WHERE $values";
+        return $query;     
+    }
+    
+    function Insert($tablename,$columnnames=array(),$value=array())
+    {
+     $i=0;
+     foreach($columnnames as $key)
+        {
+            if ($i == 0)
+            {
+                $column = $key;
+                $i++;
+            }
+            else 
+            { 
+                $column .= ','.$key;
+                $i++;
+            }
+        }        
+    $i=0;
+         foreach($value as $key)
+        {
+            if ($i == 0)
+            {
+                $values = '\''.$key.'\'';
+                $i++;
+            }
+            else 
+            { 
+                $values .= ','.'\''.$key.'\'';
                 $i++;
             }
         }
-    
-        $query="UPDATE $nazwatabeli SET $kolumny WHERE $gdzie";
-        return $query;     
+   $query="INSERT INTO $tablename ($column) VALUES ($values)";
+   return $query;
     }
-        
-        
     
-    
+    function Delete($tablename,$mathematicalconditions=array(),$logicalconditions=array())
+    {
+        
+       $i=0;        
+            foreach($mathematicalconditions as $key)
+            {
+                if ($i == 0)
+                {
+                    $values = $key;
+                    $i++;
+                }
+                else
+                {                
+                    $values .= ' '.$logicalconditions[$i-1].' '.$key;
+                    $i++;
+                }    
+            }
+            
+      $query="DELETE FROM $tablename WHERE $values";
+      return $query;  
+    }
     
     function ResultExtract($tabel_name, $columns_name=array(), $mathematicalconditions=array(),$logicalconditions=array())
     {
@@ -130,9 +195,10 @@
             $data_array = NULL;
         }
     }
-    
-    
-    DoQuery(update('sys_logs',array('user','message'),array('Krolik','Wal sie leszczu'),Condition('id','=','95')));
+ 
+  //DoQuery(Insert('module',array('name','path','active','language'),array('nazwa','katalog/nazwa','1','niemiecki')));
+  //DoQuery(Delete('module',array(Condition('id','<=','1'),Condition('language','=','niemi'),Condition('active','=','1')),array('or','and')));
+  //DoQuery(Update('sys_logs',array('user','message'),array('Marcin','Jest Ok'),array(Condition('id','=','5'),Condition('user','=','Krolik'),Condition('id','=','6')),array('and','or')));
   //Select('sys_logs',array('id','user','message'),array(Condition('id','>','5'),Condition('user','=','Tweester'),Condition('message','=','Poprawne zapytanie')),array('and','or')); 
   //Select('sys_logs',array('id','user','message'),NULL,NULL); 
 
