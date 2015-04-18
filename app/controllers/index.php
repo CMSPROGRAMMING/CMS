@@ -78,4 +78,4 @@
 	}*/
 	
 	//redner($query_all_modules,$query_name, $controler);
-        CreateMenu();
+        //CreateMenu();
