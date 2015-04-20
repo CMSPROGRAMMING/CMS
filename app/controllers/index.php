@@ -13,9 +13,9 @@
  */
         require_once MODELS_DIR . "index.php";
 	
-        function CreateMenu()
+        function CreateMenu($lang)
         {
-            $lang = GetLanguage();
+
             $menuList = ResultExtract('module', array('name','path'),array(Condition('active', '=', '1'),  Condition('language', '=', $lang)), array('AND'));
             
             echo $menuList[0]['name'];           
@@ -37,9 +37,9 @@
         }
         
         
-        function LoadHeaderFooter()
+        function LoadHeaderFooter($lang)
         {
-            CreateMenu();
+            CreateMenu($lang);
             CreateSlider();
             CreateFacebook();
             CreateBasicInfo();
@@ -52,7 +52,8 @@
         
         function Render()
         {
-            LoadHeaderFooter();
+            $lang = GetLanguage();
+            LoadHeaderFooter($lang);
             LoadContent();
         }
         
