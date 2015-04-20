@@ -38,6 +38,21 @@ function GetUserInfo()
     
 }
 
+function GetLanguage()
+{
+    if(isset($_GET['lang']))
+    {
+        $lang = $_GET['lang'];
+    }
+    else
+    {
+        $lang = "pl";
+    }
+    
+    return $lang;
+}
+
+
 function GetCurrentController()
 {
     if(isset($_GET['controller']))

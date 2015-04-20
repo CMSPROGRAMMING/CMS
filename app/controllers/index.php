@@ -15,22 +15,10 @@
 	
         function CreateMenu()
         {
-            $menuList = ResultExtract('modules', array('name','path'),array(Condition('active', '=', '1'),  Condition('language', '=', 'pl')), array('AND'));
+            $lang = GetLanguage();
+            $menuList = ResultExtract('module', array('name','path'),array(Condition('active', '=', '1'),  Condition('language', '=', $lang)), array('AND'));
             
-            echo $menuList[0]['name'];
-            
-            
-            /*		$result = mysql_query($query);
-		$i = 0;
-		
-		while($row = mysql_fetch_array($result))
-		{
-			$modules[$i] = $row['modules_path'];
-			$modules[$i+1] = $row['modules_name'];
-			$i+=2;
-		}
-		
-		return $modules;*/
+            echo $menuList[0]['name'];           
         }
         
         function CreateSlider()
@@ -78,4 +66,4 @@
 	}*/
 	
 	//redner($query_all_modules,$query_name, $controler);
-        //CreateMenu();
+        CreateMenu();

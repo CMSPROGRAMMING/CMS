@@ -44,7 +44,7 @@ function Disconection($link)
     }   
 }
 
-function AskQuery($link, $query)
+function AskQuery($link, $query) //pamietaj aby dodac jezeli zwróci NULL żeby dawało info że null a nie tylko poprawne wykonanie
 {
     if(empty($query))
     {
@@ -52,7 +52,6 @@ function AskQuery($link, $query)
     }
     
     $result = mysqli_query($link, $query);
-
     
     $user = 'Tweester'; //GetUserInfo();
     $controller = GetCurrentController();
@@ -63,7 +62,6 @@ function AskQuery($link, $query)
         DatabaseQueryError($query);
         SaveLogs($link, $message, $query, $user, $controller);
         exit;
-//return false;
     }
     else
     {
