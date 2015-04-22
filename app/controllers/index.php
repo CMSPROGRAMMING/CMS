@@ -33,9 +33,12 @@
         
         function CreateBasicInfo()
         {
-            $dataBasicInfo = ResultExtract('website_info', array('name','street','code','city','facebook'), NULL, NULL);
-            $dataContactInfo = ResultExtract('website_contact', array('name','mail','phone'), NULL, NULL);
+            require_once CONTROLLERS_DIR . 'webSiteInfo.php';   
             
+            $basicInfo["BasicInfo"] = $dataBasicInfo;
+            $basicInfo["ContactInfo"] = $dataContactInfo;
+            
+            return $basicInfo;           
         }
         
         
@@ -44,7 +47,6 @@
             CreateMenu($lang);
             CreateSlider();
             CreateFacebook();
-            CreateBasicInfo();
         }
         
         function LoadContent()
@@ -56,6 +58,23 @@
         {
             $lang = GetLanguage();
             LoadHeaderFooter($lang);
+            
+            $basicInfo = CreateBasicInfo();
+           
+            /*echo "<br />Nazwa: " . $basicInfo["BasicInfo"][0]["name"];
+            echo "<br />Ulica: " . $basicInfo["BasicInfo"][0]["street"];
+            echo "<br />Miast: " . $basicInfo["BasicInfo"][0]["post"] . "," . $basicInfo["BasicInfo"][0]["city"];
+            
+            echo "<br />Nazwa: " . $basicInfo["ContactInfo"][0]["name"];
+            echo "<br />Telefon: " . $basicInfo["ContactInfo"][0]["phone"];
+            echo "<br />E-mail: " . $basicInfo["ContactInfo"][0]["mail"];
+            
+            echo "<br />Nazwa: " . $basicInfo["ContactInfo"][1]["name"];
+            echo "<br />Telefon: " . $basicInfo["ContactInfo"][1]["phone"];
+            echo "<br />E-mail: " . $basicInfo["ContactInfo"][1]["mail"];*/
+                        
+
+             
             LoadContent();
         }
         
@@ -69,4 +88,5 @@
 	}*/
 	
 	//redner($query_all_modules,$query_name, $controler);
-        CreateMenu();
+       // CreateMenu(GetLanguage());
+        Render();

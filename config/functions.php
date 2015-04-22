@@ -67,6 +67,20 @@ function GetCurrentController()
     return $controller;
 }
 
+function GetCurrentAction()
+{
+    if(isset($_GET['action']))
+    {
+        $action = $_GET['action'];
+    }
+    else
+    {
+        $action = NULL;
+    }
+    
+    return $action;
+}
+
 function SqlMessagePars($message)
 {    
     $sign_array = array( "'" );

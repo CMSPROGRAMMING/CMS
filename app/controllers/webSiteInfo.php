@@ -1,8 +1,41 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+    //kontroler webSiteInfo
+    $action = GetCurrentAction();
+    require_once MODELS_DIR . 'webSiteInfo.php';
+    
+    //rendering
+    function GetDataBasicInfo()
+    {
+        return GetBasicInfo();
+    }
+    
+    function GetDataContactInfo()
+    {
+        return GetContactInfo();
+    }
+        
+    
+    $dataBasicInfo = GetDataBasicInfo();
+    $dataContactInfo = GetDataContactInfo();
+    
+    switch($action)
+    {
+        case 'editBasic':
+            echo "Edycja podstawowa";
+            break;
+        
+        case 'addContact':
+            //dodanie kontaktu
+            break;
+        
+        case 'editContact':
+            //edycja kontaktu
+            break;
+        
+        case 'deleteContact':
+            //usuniecie kontaktu
+            break;
+       
+    }
+   

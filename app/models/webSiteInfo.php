@@ -1,8 +1,15 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    // model webSiteInfo
 
+    function GetBasicInfo()
+    {
+        $dataBasicInfo = ResultExtract('website_info', array('name','street','post','city','facebook'), NULL, NULL);
+        return $dataBasicInfo;
+    }
+    
+    function GetContactInfo()
+    {
+        $dataContactInfo = ResultExtract('website_contact', array('name','mail','phone'), NULL, NULL);
+        return $dataContactInfo;
+    }
