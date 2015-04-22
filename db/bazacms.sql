@@ -86,3 +86,29 @@ CREATE TABLE IF NOT EXISTS `session` (
   `user` INTEGER NOT NULL COMMENT 'Użytkownik',
 	PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
+
+--
+-- Struktura tabeli dla tabeli `website_contact`
+--
+
+CREATE TABLE IF NOT EXISTS `website_contact` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` int(100) NOT NULL COMMENT 'Nazwa',
+  `mail` int(100) NOT NULL COMMENT 'Mail',
+  `phone` varchar(20) COLLATE utf8_polish_ci NOT NULL COMMENT 'Telefon',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=1 ;
+
+
+
+--
+-- Struktura tabeli dla tabeli `website_info`
+--
+
+CREATE TABLE IF NOT EXISTS `website_info` (
+  `name` varchar(300) COLLATE utf8_polish_ci NOT NULL COMMENT 'Nazwa firmy',
+  `city` varchar(100) COLLATE utf8_polish_ci NOT NULL COMMENT 'Miasto',
+  `post` varchar(10) COLLATE utf8_polish_ci NOT NULL COMMENT 'Kod',
+  `street` varchar(100) COLLATE utf8_polish_ci NOT NULL COMMENT 'Ulica',
+  `facebook` varchar(300) COLLATE utf8_polish_ci NOT NULL COMMENT 'Link Facebook'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;

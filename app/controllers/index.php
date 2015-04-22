@@ -33,6 +33,8 @@
         
         function CreateBasicInfo()
         {
+            $dataBasicInfo = ResultExtract('website_info', array('name','street','code','city','facebook'), NULL, NULL);
+            $dataContactInfo = ResultExtract('website_contact', array('name','mail','phone'), NULL, NULL);
             
         }
         
