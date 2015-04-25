@@ -81,6 +81,20 @@ function GetCurrentAction()
     return $action;
 }
 
+function GetActionId()
+{
+    if(isset($_GET['id']))
+    {
+        $id = $_GET['id'];
+    }
+    else
+    {
+        $id = 0;
+    }
+    
+    return $id;
+}
+
 function SqlMessagePars($message)
 {    
     $sign_array = array( "'" );
@@ -91,6 +105,26 @@ function SqlMessagePars($message)
     }
     
     return $message; 
+}
+
+function CheckResult($result)
+{
+    if($result == "1")
+    {
+        $message = OperationSucces();
+    }
+    else
+    {
+        $message = OperationFailed();
+    }
+    
+    return $message;
+}
+
+function WaitAndLoadView($time, $controler, $action)
+{
+    sleep($time);
+    require_once "index.php?controller=" . $controler . "&action=" . $action ;
 }
 
 function TextValidation($validationText)

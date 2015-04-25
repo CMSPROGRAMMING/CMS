@@ -28,9 +28,19 @@ function DatabaseQueryError($message)
     echo "Nastapił błąd zapytania: " . $message;
 }
 
+function OperationSucces()
+{
+     echo "Poprawnie zmodyfikowano dane!";
+}
+
+function OperationFailed()
+{
+    echo "Blad modyfikacji danych! Sproboj ponownie lub skontaktuj sie z administartorem!";
+}
+
 function DatabaseQuerySucces()
 {
-    echo "Poprawnie dodano zapytanie!";
+    //echo "Poprawnie dodano zapytanie!";
 }
 
 function ModelLoadError($filename)

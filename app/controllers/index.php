@@ -37,7 +37,7 @@
             
             $basicInfo["BasicInfo"] = $dataBasicInfo;
             $basicInfo["ContactInfo"] = $dataContactInfo;
-            
+
             return $basicInfo;           
         }
         
@@ -60,6 +60,8 @@
             LoadHeaderFooter($lang);
             
             $basicInfo = CreateBasicInfo();
+            
+
            
             /*echo "<br />Nazwa: " . $basicInfo["BasicInfo"][0]["name"];
             echo "<br />Ulica: " . $basicInfo["BasicInfo"][0]["street"];
@@ -71,8 +73,7 @@
             
             echo "<br />Nazwa: " . $basicInfo["ContactInfo"][1]["name"];
             echo "<br />Telefon: " . $basicInfo["ContactInfo"][1]["phone"];
-            echo "<br />E-mail: " . $basicInfo["ContactInfo"][1]["mail"];*/
-                        
+            echo "<br />E-mail: " . $basicInfo["ContactInfo"][1]["mail"];*/            
 
              
             LoadContent();
