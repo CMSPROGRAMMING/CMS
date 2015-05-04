@@ -21,15 +21,10 @@
             echo $menuList[0]['name'];           
         }
         
-        function CreateSlider()
+        /*function CreateSlider()
         {
-            
-        }
-        
-        function CreateFacebook()
-        {
-            
-        }
+          TODO potem   
+        }*/
         
         function CreateBasicInfo()
         {
@@ -45,8 +40,7 @@
         function LoadHeaderFooter($lang)
         {
             CreateMenu($lang);
-            CreateSlider();
-            CreateFacebook();
+            //CreateSlider();
         }
         
         function LoadContent()

@@ -47,6 +47,7 @@
         $view = "addContactCreateForm";
         require_once VIEW_DIR . 'webSiteInfo.php';
     }
+    
     function AddContact()
     {
         $data["name"] = $_POST['name'];
@@ -58,19 +59,35 @@
         return $result;        
     }
     
-    function EditContactLoadData($id)
+    function EditContactLoadData()
     {
         $id = GetActionId();
         $data = M_EditContactLoad($id);
         
-        $action = "editContactToDB";
+        $action = "editContactToDB&id=".$id;
         $view = "editContact";
         require_once VIEW_DIR . 'webSiteInfo.php';
     }
     
     function EditContactToDB()
     {
+        $data["id"] = GetActionId();
+        $data["name"] = $_POST['name'];
+	$data["phone"] = $_POST['phone'];
+	$data["mail"] = $_POST['mail'];
         
+        $result = M_UpdateContact($data);
+        
+        return $result; 
+    }
+    
+    function EditContastList()
+    {
+        $data = GetDataContactInfo();
+        $view = 'editContactList';
+        
+        require_once VIEW_DIR . 'webSiteInfo.php';
+
     }
     
     function DeleteContact()
@@ -103,11 +120,20 @@
             break;
         
         case 'editContact':
-            EditContactLoadData(1);
+            EditContactLoadData();
+            break;
+        
+        case 'editContactToDB':
+            $result = EditContactToDB();
+            CheckResult($result);
             break;
         
         case 'deleteContact':
             //usuniecie kontaktu
+            break;
+        
+        case 'editContactList':
+            EditContastList();
             break;
         
         default:

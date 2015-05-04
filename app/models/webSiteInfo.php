@@ -10,7 +10,8 @@
     
     function M_GetContactInfo()
     {
-        $dataContactInfo = ResultExtract('website_contact', array('name','mail','phone'), NULL, NULL);
+        $dataContactInfo = ResultExtract('website_contact', array('id','name','mail','phone'), 
+                                                            array(Condition('deleted', '=', '0')), NULL);
         return $dataContactInfo;
     }
     
@@ -30,12 +31,20 @@
     
     function M_EditContactLoad($id)
     {
-        $dataContactInfo = ResultExtract('website_contact', array('name','mail','phone'), array('id','=',$id), NULL);
+        $dataContactInfo = ResultExtract('website_contact', array('id','name','mail','phone'), array('id','=',$id), NULL);
         return $dataContactInfo;
+    }
+    
+    function M_UpdateContact($data)
+    {
+        return DoQuery(Update('website_contact', array('name','mail','phone'),
+                                                 array($data["name"], $data["mail"], $data["phone"]),
+                                                 array('id','=',$data["id"]),NULL));
+
     }
     
     function M_DeleteContact()
     {
-        
+        return DoQuery(Update('website_contact', array('deleted'), array(1), array('id','=',$data["id"]), NULL));
     }
     

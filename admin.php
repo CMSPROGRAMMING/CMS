@@ -7,7 +7,7 @@
 // Bazowy katalog aplikacji
 
     $app = "app";
-    $mode = "user";
+    $mode = "admin";
     
 //Ładowanie define katalogów
     require_once "config/directory.php";

@@ -6,5 +6,13 @@
  */
 
 require_once CONFIG_DIR . 'loader.php';
-require_once CONTROLLERS_DIR . 'index.php';
+
+if($mode == "user")
+{
+    require_once CONTROLLERS_DIR . 'index.php';
+}
+else 
+{
+    require_once CONTROLLERS_DIR . 'admin.php';  
+}
 

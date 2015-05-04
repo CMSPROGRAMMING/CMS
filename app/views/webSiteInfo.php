@@ -35,6 +35,7 @@
     function adminEditContactInfo($data, $action)
     {
              echo  "
+                <a href=\"?controller=webSiteInfo&action=editContactList\">Powrot do listy</a><br /> 
                 <form action=\"?controller=webSiteInfo&action=" . $action . "\" method=\"post\">
                     
                     Imie i nazwisko / Nazwa:<br>
@@ -47,11 +48,26 @@
                     
                     Adres e-mail:<br>
                     <input type=\"text\" name=\"mail\" value=\"" .$data[0]['mail']. "\">
-                    <br><br>
-                     
+                    <br><br>                   
+
                     <input type=\"submit\" value=\"Aktualizuj\">
                 </form> 
               ";   
+    }
+    
+    function adminEditContactList($data)
+    {
+        echo "<a href=\"?controller=webSiteInfo&action=addContactCreateForm\">Dodaj nowy adres</a><br />
+              EDYTUJ: <br />";
+        for($i = 0; $i < Count($data); $i++)
+        {
+            echo    $data[$i]["name"].
+                 "
+                    <a href=\"?controller=webSiteInfo&action=editContact&id=".$data[$i]["id"]."\"> EDYTUJ</a>
+                    <a href=\"?controller=webSiteInfo&action=deleteContact&id=".$data[$i]["id"]."\"> USUN</a><br />";
+
+        }
+        
     }
     
     switch($view)
@@ -66,6 +82,10 @@
         
         case 'editContact':            
             adminEditContactInfo($data, $action);
+            break;
+        
+        case 'editContactList':
+            adminEditContactList($data);
             break;
         
         case NULL:
