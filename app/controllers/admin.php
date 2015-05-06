@@ -6,5 +6,4 @@
  * and open the template in the editor.
  */
 
-echo "logowanie";
-
+        require_once VIEW_DIR . "admin.php"; //standard login.php
