@@ -73,6 +73,9 @@
             LoadContent();
         }
         
+        //tutaj lub w info
+        
+        
 
 	/*function redner($query_all_models, $query_controler_name, $controler)
 	{
