@@ -15,8 +15,9 @@ function Conection()
     $password = "";
     $database = "bazacms";
     
-    @$link = mysqli_connect($host, $user, $password, $database);        
-
+    @$link = mysqli_connect($host, $user, $password, $database); 
+    mysqli_set_charset($link, "utf8");
+    
     if (!$link)
     {	
         DatabaseConnectionError(mysqli_connect_error());

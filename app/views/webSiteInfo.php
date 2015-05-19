@@ -55,6 +55,12 @@
               ";   
     }
     
+    function forUser()
+    {
+        
+    }
+    
+    
     function adminEditContactList($data)
     {
         echo "<a href=\"?controller=webSiteInfo&action=addContactCreateForm\">Dodaj nowy adres</a><br />

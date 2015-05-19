@@ -1,0 +1,599 @@
+@import url(http://fonts.googleapis.com/css?family=Orbitron:400,500,700,900);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext);
+/* */
+*,*::before,*::after{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	text-rendering: geometricPrecision;
+}
+html, body{
+	min-height: 100%;
+	min-width: 100%;
+	font-family: Roboto, Arial, Tahoma, Verdana, sans-serif;
+	font-size: 12px;
+	line-height: 1.4;
+	color: #ffffff;
+}
+html{
+	background: #0b0805 url(../images/bg.jpg) no-repeat;	
+	background-size: cover;
+}
+.site-wraper{
+	width: 980px;
+	margin: 0 auto;
+}
+.content.news{padding-bottom: 80px;}
+.content.p-rel{position: relative;}
+
+/* CSS3 */
+*{
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+}
+a:link, a:visited{
+	text-decoration: none;
+	color: #505256;
+}
+a:hover, a:active{
+	text-decoration: none;
+	color: red;
+}
+
+.float-left{float: left;}
+.float-right{float: right;}
+.clear{clear: both;}
+.dblock{display: block;}
+
+.color-red{color: red;}
+.color-green{color: green;}
+.largetext{font-size: 16px;}
+.txt-up{text-transform: uppercase;}
+
+/* MAIN HEADER */
+.main-header{
+	padding: 27px 0 0 0;
+	margin-bottom: 80px;
+	letter-spacing: 2px;
+}
+
+.main-menu{
+	font-family: 'Orbitron', sans-serif;
+	font-size: 14px;
+}
+.main-menu li{
+	display: block;
+	float: left;
+}
+.main-menu li a{
+	display: block;
+	float: left;
+	margin: 0px 28px;
+	padding: 4px 0;
+	font-weight: normal;
+	color: #787777;
+}
+.main-menu li a:hover,
+.main-menu li a:active,
+.main-menu li a.current{
+	color: red;
+	border-bottom: solid 1px red;
+}
+
+/* INDEX */
+.social-box{
+	height: 700px;
+	background: url(../images/oskar-bg.png) no-repeat;
+	background-size: cover;
+}
+.social-box li a{
+	font-size: 12px;
+	color: red;
+	font-family: 'Orbitron', sans-serif;
+	opacity: 0.4;
+	display: block;
+}
+.social-box li a:hover{
+	opacity: 1;	
+}
+.social-box li.fb-box{
+	width: 213px;
+	height: 168px;
+	padding: 135px 0 0 15px;
+	background: url(../images/fb-box.png) no-repeat center center;
+}
+.social-box li.tw-box{
+	width: 191px;
+	height: 137px;
+	margin: -50px 0 0 170px;
+	padding: 110px 0 0 25px;
+	background: url(../images/tw-box.png) no-repeat center center;
+}
+.social-box li.is-box{
+	width: 248px;
+	height: 175px;
+	margin: -80px 0 0 0;
+	padding: 126px 0 0 35px;
+	background: url(../images/is-box.png) no-repeat center center;
+}
+
+h1{
+	background: url(../images/oskar-h1.png) no-repeat bottom center;
+	width: 100%;
+	height: 83px;
+	background-size: contain;
+	margin: 0 auto;
+	text-indent: -999em;
+}
+h2{
+	height: 28px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top left;
+	margin-bottom: 15px;
+	text-indent: -999em;
+}
+h2.news_h2{background-image: url(../images/news_h2.png);}
+h2.gallery_h2{background-image: url(../images/gallery_h2.png);}
+h2.team_h2{background-image: url(../images/team_h2.png);}
+h2.sponsors_h2{background-image: url(../images/sponsors_h2.png); width: 250px;}
+h2.table_h2{background-image: url(../images/table_h2.png);}
+h2.contact_h2{background-image: url(../images/contact_h2.png);}
+h2.zawody_h2{background-image: url(../images/zawody_h2.png);}
+h2.ekstraliga_h2{background-image: url(../images/ekstraliga_h2.png);height: 22px;}
+
+/* NEWS */
+.news-box {
+	width: 49%;
+}
+article.news-art {
+	opacity: 0.6;
+	color: #bbb;
+	line-height: 1.6;
+	margin-bottom: 20px;
+	position: relative;
+}
+article.news-art a{
+	color: #fff;
+}
+article.news-art:hover{
+	opacity: 1;
+}
+article.news-art h3 {
+	width: 80%;
+}
+span.date {
+	position: absolute;
+	right: 35px;
+	top: -5px;
+	color: red;
+	border-bottom: solid 1px red;
+	padding: 0 1px;
+}
+.pagination{
+	margin: 10px auto;
+	font-size: 11px;
+	text-align: center;
+}
+.pagination ul li{
+	display: inline-block;
+}
+.pagination ul li a{
+	display: inline-block;
+	padding: 4px 9px;
+	margin: 0 2px;
+	background: rgba(230, 230, 230, 0.2);
+	color: rgba(255, 255, 255, 0.5);
+	border-radius: 3px;
+	text-align: center;
+	min-width: 23px;
+}
+.pagination ul li a:hover,
+.pagination ul li a.curr{
+	background: #9c0201;
+}
+.pagination ul li.prev-link a,
+.pagination ul li.next-link a{
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-indent: -999em;
+}
+.pagination ul li.prev-link a{background-image: url(../images/arrow-prev.png);}
+.pagination ul li.next-link a{background-image: url(../images/arrow-next.png);}
+
+.red-box {
+	background: rgba(255, 0, 0, 0.4);
+	width: 244px;
+	height: 380px;
+	padding: 10px;
+}
+.red-box h2 {color: #fff;}
+.table-box.red-box h2 {font-size: 26px;margin-bottom: 0;margin-top: 5px;}
+
+.title-table-box{
+	font-family: Roboto;
+	font-weight: 300;
+	font-size: 27px;
+	color: #fa6c6c;
+}
+.title-table-box.bold{
+	color: #fff;
+	opacity: 0.2;
+	font-weight: 600;
+}
+
+.bignews-box, .table-box {color: #fa6c6c;}
+.table-news-img{
+	text-align: center;
+	margin: 25px auto;
+}
+.table-news-img img{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.table-list{
+	line-height: 28px;
+	font-size: 13px;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+.table-list li.mark {
+    font-weight: bold;
+    color: #fff;
+}
+
+/* GALERIA */
+.gallery-box{
+	margin-bottom: 40px;
+}
+.gallery-item {
+	width: 50%;
+	float: left;
+	padding: 10px;
+	position: relative;
+	opacity: 0.8;
+	margin-bottom: 20px;
+}
+.gallery-item:hover{
+	opacity: 1;
+}
+.gallery-cover {
+	width: 96px;
+	height: 96px;
+	margin-right: 20px;
+}
+.gallery-item h5{
+	font-size: 15px;
+	width: 65%;
+	font-weight: normal;
+	line-height: 1.2;
+}
+.gallery-text {
+	padding: 5px 0;
+	line-height: 20px;
+	color: #7E7E7E;
+}
+.gallery-text p{
+	padding: 5px 0;
+}
+.facebook-side {
+	display: block;
+	width: 45px;
+	height: 400px;
+	background: url(../images/fb-aside.png) no-repeat top left;
+	position: absolute;
+	right: 0px;
+	top: 45px;
+	text-indent: -999em;
+}
+.facebook-side:hover{
+	background-position: top right;
+}
+
+/* EKIPA */
+h4.team-title {
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 300;
+	border-bottom: solid 3px #fff;
+	width: 320px;
+	text-align: center;
+	line-height: 50px;
+}
+span.hr-ver {
+	width: 2px;
+	height: 40px;
+	margin: 0 15px;
+	background: #fff;
+	display: inline-block;
+	position: relative;
+	top: 10px;
+}
+.team-title{
+	margin-top: 50px;
+}
+.person-01 {
+	float: right;
+	width: 55%;
+	margin-top: -90px;
+}
+.person-02 {
+	clear: both;
+	width: 70%;
+	margin-top: 30px;
+}
+.person-03{
+	background: url(../images/oskar-img.png) no-repeat bottom right;
+	padding: 0 20px 0 0px;
+	height: 285px;
+	margin-top: -130px;
+	margin-right: -30px;
+	text-align: right;
+}
+
+.person-picture{
+	width: 210px;
+}
+.person-picture img {
+	border-radius: 200px;
+}
+.person-text {
+	margin-top: 8%;
+	font-size: 12px;
+	color: #838383;
+	width: 60%;
+}
+.team-box h5{
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.team-line{
+	position: absolute;
+	width: 537px;
+	height: 146px;
+	background: url(../images/team-line.png) no-repeat top center;
+	top: 200px;
+	left: 165px;
+}
+
+/* SPONSORZY */
+.logos-list {
+	width: 65%;
+	position: relative;
+	z-index: 2;
+}
+.logos-list.partners-list{
+	margin-bottom: 120px;
+}
+.logos-list.partners-list ul{
+	text-align: left;
+	padding: 20px 10px;
+}
+.logos-list ul{
+	text-align: right;
+}
+.logos-list ul li{
+	display: inline-block;
+	padding: 3px;
+}
+.logos-list ul li img{
+	border-radius: 4px;
+}
+.logos-list ul li img:hover{
+	border-radius: 10px;
+}
+.partners-title h3 {
+	width: 320px;
+	border-bottom: solid 3px #fff;
+	line-height: 65px;
+	font-size: 18px;
+	font-weight: 300;
+	text-align: center;
+	letter-spacing: 3px;
+	margin-top: -70px;
+}
+h2.h2-partners {
+	font-size: 22px;
+	padding: 0 20px;
+	margin-top: 40px;
+}
+.team-line.sponsors-line{left: 250px;}
+
+/* TABELA */
+article.table-item {
+	width: 33%;
+	padding: 10px;
+	margin-bottom: 20px;
+	float: left;
+	color: #fff;
+	line-height: 1.4;
+}
+div#table {height: 380px; width: 100%; line-height: 1.4;}
+div#table p {text-transform: initial;}
+
+h3.table-h3 {
+	font-size: 22px;
+	padding: 20px 10px;
+}
+
+/* KONTAKT */
+.contact-box {
+	width: 75%;
+	padding: 50px 0 20px 0;
+}
+.contact-info{
+	margin-bottom: 30px;
+	line-height: 20px;
+}
+input{
+	background: rgba(56, 54, 51, 0.55);
+	border: none;
+	padding: 10px;
+	border-radius: 4px;
+	font-size: 12px;
+	font-family: Roboto, Arial, sans-serif;
+	color: #fff;
+	box-shadow: inset 3px 0px 3px 0px rgba(0,0,0,0.2)
+
+}
+textarea{
+	width: 100%;
+	height: 200px;
+	background: rgba(56, 54, 51, 0.55);
+	border: none;
+	padding: 10px;
+	border-radius: 4px;
+	font-size: 12px;
+	font-family: Roboto, Arial, sans-serif;
+	color: #fff;
+	box-shadow: inset 3px 0px 3px 0px rgba(0,0,0,0.2)
+
+}
+*:focus{
+	outline-color: #FF0101;
+}
+.inp-wraper {
+	margin-bottom: 20px;
+}
+.inp-wraper.column-3 input {
+	width: 33%;
+}
+button{
+	display: block;
+	margin: 20px auto;
+	width: 157px;
+	padding: 15px 0;
+	text-align: center;
+	border: solid 1px red;
+	border-radius: 2px;
+	color: red;
+	letter-spacing: 5px;
+	background: transparent;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+button:hover{
+	background: red;
+	color: #fff;
+}
+.person-img {
+	position: absolute;
+	right: -30px;
+	bottom: 0;
+}
+
+/* STOPKA */
+footer{
+	font-family: 'Orbitron', sans-serif;
+	text-align: center;
+	letter-spacing: 4px;	
+}
+footer.index.main-footer {margin-top: -210px;}
+footer.team.main-footer {margin-top: -80px;}
+.site-title p{
+	margin-top: 15px;
+	text-align: center;
+	letter-spacing: 4px;
+	font-size: 13px;
+}
+a.btn {
+	display: block;
+	margin:  20px auto;
+	width: 157px;
+	padding: 15px 0;
+	text-align: center;
+	border: solid 1px red;
+	border-radius: 2px;
+	color: red;
+	letter-spacing: 5px;
+}
+a.btn.write {
+	width: 250px;
+}
+a.btn:hover{
+	background: red;
+	color: #fff;
+}
+.footer-text{
+	margin-top: 90px;
+	padding-bottom: 10px;
+	opacity: 0.1;
+	font-size: 10px;
+}
+.footer-text a{color: #fff;}
+
+.thanks{
+	padding: 50px 0;
+	text-align: center;
+	font-size: 24px;
+}
+
+/* MEDIA QUERIES */
+@media all and (min-width : 680px) and (max-width : 999px){
+	.site-wraper{width: 100%;padding: 5px;}
+	.main-menu{font-size: 12px;}
+	.main-menu ul{text-align: center;margin: 0 auto; width: 90%;}
+	.main-menu li a{margin: 0 5px;}
+	.content.news{padding-bottom: 20px;}
+	.content{padding: 20px;}
+	.news-box{width: 100%;}
+	.red-box{width: 49%; margin-top: 20px;}
+	.gallery-item{width: 100%;}
+	.team-line{display: none;}
+	h4.team-title{width: 100%;}
+	.person-01,.person-02,.person-03{float: none; width: 100%; margin-top: 20px;}
+	.person-picture,.person-picture img{width: 100px;}
+	.person-text{margin-top: 0; }
+	.person-03 .person-text {width: 100%; padding-top: 150px;}
+	.sponsors-box h2{float: none; text-align: center;}
+	.logos-list{width: 100%;float: none;text-align: center;}
+	.logos-list ul{text-align: center;}
+	.partners-box {margin-top:  100px;}
+	.partners-title h3{width: auto;}
+	article.table-item{width: 50%;}
+	.contact-box{width: 100%;}
+}
+@media all and (min-width : 1px) and (max-width : 679px){
+	.site-wraper{width: 100%;padding: 5px;}
+	.main-header{margin-bottom: 0;}
+	.main-menu{font-size: 12px; width: 90%; margin: 0 auto;}
+	.main-menu ul{text-align: center;margin: 0 auto; width: 90%;}
+	.main-menu li{float: none;}
+	.main-menu li a{margin: 0 5px; float: none;}
+	.social-box{height: auto;}
+	.social-box li.tw-box{margin: -30px 0 0 0;}
+	footer.index.main-footer{margin-top: -30px;}
+	.content.news{padding-bottom: 20px;}
+	.content{padding: 5px;}
+	.news-box{width: 100%;}
+	.red-box{width: 100%; margin-top: 20px;}
+	.gallery-item{width: 100%; margin-bottom: 0;}
+	a.facebook-side{display: none;}
+	.nano{width: 100%!important;}
+	.gallery-cover{width: 80px;}
+	.gallery-item h5{width: 95%;padding-top: 3px; font-size: 13px; }
+	.gallery-text p{font-size: 11px;}
+	.team-line{display: none;}
+	h4.team-title{width: 100%;}
+	.person-01,.person-02,.person-03{float: none; width: 100%; margin-top: 20px;}
+	.person-picture,.person-picture img{width: 80px;}
+	.person-text{margin-top: 0; margin-left: 10px;}
+	.person-03 .person-text {width: 100%; padding-top: 150px; text-align: center; text-shadow: 1px 1px 0px rgba(0,0,0,0.2); color: #fff;}
+	.sponsors-box h2{float: none; text-align: center;}
+	.logos-list{width: 100%;float: none;text-align: center;}
+	.logos-list ul{text-align: center;}
+	.partners-title h3{width: auto;}
+	.partners-box {margin-top:  100px;}
+	article.table-item{width: 50%;}
+	.contact-box{width: 100%;}
+	.inp-wraper.column-3 input{width: 100%; margin-top: 3px;}
+	.person-img{display: none;}
+	
+	.social-box{background: none;}
+	.social-box ul{text-align: center;}
+	.social-box li{  margin: 30px auto 0 auto!important; padding: 140px 0 0 0!important;}
+}

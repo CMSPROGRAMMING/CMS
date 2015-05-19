@@ -199,6 +199,109 @@
         }
     }
 
+    function CheckPermission($controller,$action,$dataPermission)
+    {
+        $search =0;
+        $length = count($dataPermission);
+        for ($i=0 ; $i < $length ; $i++)
+        {
+            if (($dataPermission[$i]['controller'] == $controller) && ($dataPermission[$i]['action'] == $action))
+                {
+                  ++$search;
+                }
+        }
+        if ($search != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    function SelectSort($tablename,$columnnames=array(),$mathematicalconditions=array(),$logicalconditions=array(),$sortowanie=array())
+    {
+        $i=0;
+        
+        foreach($columnnames as $key)
+        {
+            if ($i == 0)
+            {
+                $column = $key;
+                $i++;
+            }
+            else 
+            { 
+                $column .= ','.$key;
+            }
+        }
+        $i = 0;
+        foreach($sortowanie as $key)
+        {
+            if ($i == 0)
+            {
+                $sort = $key;
+                $i++;
+            }
+            else 
+            { 
+                $sort .= ','.$key;
+            }
+        }
+        if (count($mathematicalconditions)==0)
+        {
+            $query="SELECT $column FROM $tablename ORDER BY $sort DESC";
+            return $query;
+        }
+        else
+        {
+            $i=0;
+            foreach($mathematicalconditions as $key)
+            {
+                if ($i == 0)
+                {
+                    $values = $key;
+                    $i++;
+                }
+                else
+                {                
+                    $values .= ' '.$logicalconditions[$i-1].' '.$key;
+                    $i++;
+                }    
+            }
+            
+            $query="SELECT $column FROM $tablename WHERE $values ORDER BY $sort DESC";
+            return $query;
+        }
+    }
+    
+    function ResultExtractSort($tabel_name, $columns_name=array(), $mathematicalconditions=array(),$logicalconditions=array(),$sort=array())
+    {
+        $result = DoQuery(SelectSort($tabel_name, $columns_name, $mathematicalconditions, $logicalconditions,$sort));
+        
+        $i = 0;
+        
+        while($row = mysqli_fetch_assoc($result))
+	{
+            for($j = 0; $j < count($columns_name); $j++)
+            {
+                $data_array[$i][$columns_name[$j]] = $row[$columns_name[$j]];
+            }        
+            $i++;
+	}        
+        
+        mysqli_free_result($result);
+        if(!empty($data_array))
+        {
+            return $data_array;
+        }
+        else
+        {
+            $data_array = NULL;
+        }
+    }
+    
     
     //DoQuery(update('sys_logs',array('user','message'),array('Krolik','Wal sie leszczu'),Condition('id','=','95')));
 

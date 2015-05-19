@@ -1,6 +1,12 @@
 <?php
+            if (isset($_SESSION['error']))
+            {
+            $error=$_SESSION['error'];
+            session_destroy();            
+            }
+            else
+            $error = NULL;
 
-        $error = ""; //GET
 	echo "<HTML>
 		<HEAD>
 			<meta charset=\"utf-8\" />

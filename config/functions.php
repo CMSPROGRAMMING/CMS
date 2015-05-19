@@ -52,7 +52,6 @@ function GetLanguage()
     return $lang;
 }
 
-
 function GetCurrentController()
 {
     if(isset($_GET['controller']))
@@ -143,4 +142,12 @@ function TextValidation($validationText)
 function SendMail()
 {
 
+}
+
+function AdminPermission($data)
+{
+    if(CheckPermission(GetCurrentController(), GetCurrentAction(), $data) == true)
+        return true;
+    else
+        echo "Brak uprawnień";
 }

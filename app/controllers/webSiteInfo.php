@@ -133,7 +133,7 @@
             break;
         
         case 'editContactList':
-            EditContastList();
+            EditContactList();
             break;
         
         default:

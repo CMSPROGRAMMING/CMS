@@ -11,12 +11,17 @@
  *  
  * 
  */
+        if(!isset($_SESSION['Permission']))
+        {
+            session_start();
+        }
+    
         require_once MODELS_DIR . "index.php";
 	
         function CreateMenu($lang)
         {
 
-            $menuList = ResultExtract('module', array('name','path'),array(Condition('active', '=', '1'),  Condition('language', '=', $lang)), array('AND'));
+            $menuList = ResultExtract('module', array('name','controller','action'),array(Condition('active', '=', '1'),  Condition('language', '=', $lang)), array('AND'));
             
             echo $menuList[0]['name'];           
         }
@@ -53,9 +58,11 @@
             $lang = GetLanguage();
             LoadHeaderFooter($lang);
             
-            $basicInfo = CreateBasicInfo();
+            //$basicInfo = CreateBasicInfo();
             
+            $controller = GetCurrentController();
 
+            require_once CONTROLLERS_DIR . $controller . '.php'; 
            
             /*echo "<br />Nazwa: " . $basicInfo["BasicInfo"][0]["name"];
             echo "<br />Ulica: " . $basicInfo["BasicInfo"][0]["street"];
